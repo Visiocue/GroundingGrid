@@ -4,7 +4,7 @@ requires = ["hatchling", "pybind11", "scikit-build-core"]
 build-backend = "hatchling.build"
 
 [project]
-name = "hatchling_example"
+name = "groundinggrid"
 version = "0.1.0"
 
 [tool.hatch.build.targets.wheel.hooks.scikit-build]
