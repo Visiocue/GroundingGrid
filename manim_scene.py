@@ -15,12 +15,12 @@ from manimlib import TexText as Tex
 class BaseManim(Scene):
     def construct(self):
         # Header text
-        header_text = Tex("GridPrompting, Visiocue GmbH", color=YELLOW)
-        header_text.to_edge(UP, buff=0.5)
+        header_text = Tex("GroundingGrid prompting\\\\Visiocue GmbH, Filip Dimitrovski", color=YELLOW)
+        header_text.to_edge(DOWN + RIGHT, buff=0.5)
 
         # First prompt question text
         question_text = Tex("Naive visual: Where is the square on this image?")
-        question_text.next_to(header_text, DOWN, buff=0.5)
+        question_text.to_edge(UP, buff=0.5)
 
         # Create a circle and square
         circle = Circle().set_fill(PINK, opacity=0.5)
@@ -59,7 +59,7 @@ class BaseManim(Scene):
 
         # Second prompt
         question_text2 = TexText("Bbox prompt: Where is the blue square as a bounding box \\\\ $[y_{\\text{min}}, x_{\\text{min}}, y_{\\text{max}}, x_{\\text{max}}]$")
-        question_text2.next_to(header_text, DOWN, buff=0.5)
+        question_text2.to_edge(UP, buff=0.5)
         llm_text55 = Tex("LLM Output:\\\\").move_to(llm_box.get_center())
         llm_text2 = TexText("LLM Output:\\\\Bounding box:\\\\$[0, 0, 0.2, 0.3]$").move_to(llm_box.get_center())
 
@@ -105,9 +105,15 @@ class BaseManim(Scene):
         self.wait(2.3)
 
         # Third prompt
-        question_text3 = Tex("Ground prompt:\\\\Which numbers on the grid overlay contain ", "the blue square", ".")
-        question_text3[1].set_color(BLUE)
-        question_text3.next_to(header_text, DOWN, buff=0.5)
+        question_text3 = TexText("Grid prompt:\\\\Which numbers on the grid overlay contain the\\\\")
+        question_text3.to_edge(UP, buff=0.5)
+        qq5 = TexText("blue square", color=TEAL)
+        question_text3.add(qq5)
+        qq5.next_to(question_text3, BOTTOM + LEFT, buff=0.5)
+
+
+        # question_text3.set_color_by_tex("")
+        # question_text3.next_to(header_text, DOWN, buff=0.5)
         llm_text3 = Tex("LLM output:").move_to(llm_box.get_center())
         llm_text_final = Tex("Numbers\\\\ with cells:\\\\ $[ 17, 18, 24 ]$").move_to(llm_box.get_center())
 
