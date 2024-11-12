@@ -109,7 +109,7 @@ class BaseManim(Scene):
         question_text3.to_edge(UP, buff=0.5)
         qq5 = TexText("blue square", color=TEAL)
         question_text3.add(qq5)
-        qq5.next_to(question_text3, BOTTOM + LEFT, buff=0.5)
+        qq5.move_to(question_text3.get_center())
 
 
         # question_text3.set_color_by_tex("")
