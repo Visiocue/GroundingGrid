@@ -7,6 +7,22 @@ build-backend = "hatchling.build"
 name = "groundinggrid"
 version = "0.1.0"
 
+[tool.hatch.envs.dev]
+dependencies = [
+    "pytest",
+    "pytest-benchmark"
+]
+
+[tool.hatch.envs.hatch-test]
+dependencies = [
+    "pytest",
+    "pytest-benchmark",
+    "coverage[toml]",
+    "pytest",
+    "pytest-cov",
+    "pytest-mock",
+]
+
 [tool.hatch.build.targets.wheel.hooks.scikit-build]
 wheel.install-dir = "hatchling_example"
 cmake.source-dir = "cpp"
