@@ -1,32 +1,15 @@
-
 [build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
 
-[tool.poetry]
+[project]
 name = "groundinggrid"
-version = "0.1.1"
-description = "Grounding Grid"
-authors = ["Filip Dimitrovski <filip.dimitrovski@visiocue.com>"]
+authors = [{name = "Filip Dimitrovski", email = "filip.dimitrovski@visiocue.com"}]
+readme = "README.md"
+license = {file = "LICENSE"}
+classifiers = ["License :: OSI Approved :: Apache Software License"]
+dynamic = ["version", "description"]
+dependencies = ["openai>=1.55.0", "Pillow", "fastapi", "tqdm", "pytest-benchmark", "google-generativeai>=0.8.0", "pytest", "black"]
 
-[tool.poetry.dependencies]
-python = "^3.9"
-openai = "*"
-tqdm = "*"
-fastapi = "*"
-numpy = "*"
-Pillow = "*"
-google-generativeai = "*"
-pytest-benchmark = "*"
-
-[tool.poetry.dev-dependencies]
-pytest = "*"
-pytest-cov = "*"
-pytest-mock = "*"
-ruff = "^0.7.3"
-
-#[tool.poetry.scripts]
-#build = "poetry build"
-
-#[console_scripts]
-# aa
+[project.urls]
+Home = "https://visiocue.com"

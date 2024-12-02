@@ -1,1 +1,2 @@
-poetry run pytest -s .
+black groundinggrid
+# poetry run pytest -s .
